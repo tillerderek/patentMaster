@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', 1);
+
 $patNumber = $_POST['patNumber'];
 
 
@@ -43,14 +45,29 @@ if ($noResults == 0) {
   // else do this
 } else {
 
+  $smallWordsArray = array(
+    'of', 'a', 'the', 'and', 'an', 'or', 'nor', 'but', 'is', 'if', 'then', 'else', 'when',
+    'at', 'from', 'by', 'on', 'off', 'for', 'in', 'out', 'over', 'to', 'into', 'with'
+  );
+
   $results = $arr["results"][0];
 
   $abstract = $results["abstractText"][0];
+
   $title = $results["inventionTitle"];
+  $words = explode(' ', $title);
+  foreach ($words as $key => $word) {
+    if (!$key or !in_array($word, $smallWordsArray))
+      $words[$key] = ucwords($word);
+  }
+  $newTitle = implode(' ', $words);
+
+
   $date = date_create_from_format("m-d-Y", $results["grantDate"]);
 
 
   $patentNumber = $results["patentNumber"];
+  $patentNumberFormatted = (int)$patentNumber;
   $inventors = $results["inventorNameArrayText"];
 
 ?>
@@ -65,15 +82,15 @@ if ($noResults == 0) {
       </tr>
       <tr>
         <td>Patent Number:</td>
-        <td><?php echo $patentNumber ?></td>
+        <td><?php echo number_format($patentNumberFormatted) ?></td>
       </tr>
       <tr>
         <td>Date:</td>
         <td><?php echo date_format($date, "F j, Y") ?></td>
       </tr>
-      <tr id="title">
+      <tr>
         <td>Title:</td>
-        <td><?php echo $title ?></td>
+        <td><?php echo $newTitle ?></td>
       </tr>
       <tr>
         <td>Abstract:</td>
