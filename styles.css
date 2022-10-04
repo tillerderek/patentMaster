@@ -13,8 +13,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: .5fr 1fr 1fr;
   width: 100vw;
   height: 100vh;
 }
@@ -70,6 +70,31 @@ tr:nth-child(odd) {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  grid-row: 1 / -1;
+  grid-row: 2 / -1;
   grid-column: 1 / -1;
+}
+
+#wrapper2 {
+  text-align: center;
+  border: 2px solid #333;
+  grid-row: 1 / 1;
+  grid-column: 2 / 3;
+  background-color: rgb(11, 141, 255);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  max-height: 60%;
+  min-height: 300px;
+  box-shadow: 0 0 20px 15px rgb(81, 27, 97);
+  align-self: end;
+  margin-bottom: 1rem;
+  min-width: 300px;
+}
+
+#wrapper2 form {
+  margin: 0;
+}
+
+#inventors {
+  line-height: 1.5;
 }

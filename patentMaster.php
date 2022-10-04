@@ -71,9 +71,23 @@ if ($noResults == 0) {
   $inventors = $results["inventorNameArrayText"];
 
 ?>
+
+  <div id="wrapper2">
+    <h1>🕚Patent Master🤑 </h1>
+
+    <form action="patentMaster.php" method="post">
+
+      <p><label for="number">Input individual numbers here:</label>
+        <input type="text" name="patNumber">
+      </p>
+
+      <p><input type="submit" value="Submit"></p>
+
+    </form>
+  </div>
   <div id="tableContainer">
     <table>
-      <tr>
+      <tr id="inventors">
         <td>Inventors:</td>
         <td><?php foreach ($inventors as $name) {
               list($lname, $fname) = preg_split('/ /', $name, 2);
