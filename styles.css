@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  background-image: linear-gradient(rgb(15, 181, 0), rgb(115, 67, 175));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+#wrapper {
+  min-width: 375px;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  background-color: #333;
+  border: 3px solid rgb(127, 3, 236);
+  color: rgb(255, 160, 160);
+  font-family: 'Audiowide', cursive;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 0 20px 15px rgb(81, 27, 97);
+  border-radius: 50%;
+  place-self: center;
+}
+
+input {
+  background-color: rgb(231, 135, 250);
+  border-radius: 5px;
+}
+
+#fileSelect {
+  background-color: #333;
+}
+
+table {
+  text-align: center;
+  background-color: rgb(255, 194, 194);
+  grid-column: 2 / 6;
+  grid-row: 1 / -1;
+  font-size: 20px;
+}
+
+table,
+th,
+td {
+  border: 2px solid black;
+}
+
+th,
+td {
+  padding: 0.5rem;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(190, 255, 190);
+}
+
+#tableContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+}
+
+#Title {
+  text-transform: capitalize;
+}
